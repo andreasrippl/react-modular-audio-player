@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 //Functions that render dumb components
 import {
@@ -10,20 +10,20 @@ import {
   renderSeekBar,
   renderTime,
   renderVolume,
-  renderCustomArrange
-} from "./innerComponents/index";
+  renderCustomArrange,
+} from './innerComponents/index';
 
 //methods
-import functions from "./functions/index";
+import functions from './functions/index';
 
 //initial state
-import { default as initialState } from "./initialState";
+import { default as initialState } from './initialState';
 
 //style sheet
-import "./audioPlayerStyle.scss";
+import './audioPlayerStyle.scss';
 
 //prop types
-import { audioPlayerPropTypes } from "./spec/propTypes";
+import { audioPlayerPropTypes } from './spec/propTypes';
 
 export class AudioPlayer extends Component {
   constructor(props) {
@@ -42,7 +42,7 @@ export class AudioPlayer extends Component {
       name: renderName.bind(this),
       seek: renderSeekBar.bind(this),
       time: renderTime.bind(this),
-      volume: renderVolume.bind(this)
+      volume: renderVolume.bind(this),
     };
 
     //binding methods
@@ -77,7 +77,6 @@ export class AudioPlayer extends Component {
 
   componentDidMount() {
     this.mountComponent();
-    this.handlePlay();
   }
 
   render() {
@@ -86,15 +85,12 @@ export class AudioPlayer extends Component {
     if (!this.props.rearrange) {
       //DEFAULT PLAYER VIEW
       return (
-        <div
-          className="audio-player"
-          style={this.setStyle()}
-        >
+        <div className="audio-player" style={this.setStyle()}>
           {this.setAudio()}
 
           {/* Main Controls */}
           {/* Play/Pause */}
-          {this.componentObj.play("first")}
+          {this.componentObj.play('first')}
 
           {/* Rewind */}
           {this.props.hideRewind ? null : this.componentObj.rewind()}
