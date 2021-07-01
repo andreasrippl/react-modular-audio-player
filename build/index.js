@@ -589,26 +589,22 @@ var AudioPlayer = exports.AudioPlayer = function (_Component) {
   }
 
   _createClass(AudioPlayer, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {
       this.mountComponent();
-      this.handlePlay();
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       var title = this.props.audioFiles[this.state.currentTrackIdx].title;
 
       if (!this.props.rearrange) {
         //DEFAULT PLAYER VIEW
         return _react2.default.createElement(
-          "div",
-          {
-            className: "audio-player",
-            style: this.setStyle()
-          },
+          'div',
+          { className: 'audio-player', style: this.setStyle() },
           this.setAudio(),
-          this.componentObj.play("first"),
+          this.componentObj.play('first'),
           this.props.hideRewind ? null : this.componentObj.rewind(),
           this.props.hideForward ? null : this.componentObj.forward(),
           this.props.hideLoop ? null : this.componentObj.loop(),
@@ -1328,19 +1324,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
   currentTrackIdx: 0,
-  seekerVal: "0",
-  volume: "75",
-  playing: false,
+  seekerVal: '0',
+  volume: '75',
+  playing: true,
   paused: false,
   muted: false,
-  volumePreMute: "75",
-  duration: "0:00",
-  currentAudioTime: "0:00",
+  volumePreMute: '75',
+  duration: '0:00',
+  currentAudioTime: '0:00',
   recentlyRewound: false,
   loaded: false,
   loop: false,
   playHover: false,
-  playStarted: false,
+  playStarted: true,
   muteHover: false,
   forwardHover: false,
   rewindHover: false,
@@ -1359,22 +1355,22 @@ exports.default = {
   rewindHoverIcon: _index2.default.rewindHoverIcon,
   loopIcon: _index2.default.loopIcon,
   loopEngagedIcon: _index2.default.loopEngagedIcon,
-  seekWidth: "35%",
-  volumeWidth: "33%",
-  nameWidth: "32%",
-  sliderClass: "slider",
-  fontFamily: "sans-serif",
-  fontWeight: "100",
-  fontSize: "small",
-  fontColor: "black",
-  playerWidth: "20rem",
-  iconSize: "1rem",
+  seekWidth: '35%',
+  volumeWidth: '33%',
+  nameWidth: '32%',
+  sliderClass: 'slider',
+  fontFamily: 'sans-serif',
+  fontWeight: '100',
+  fontSize: 'small',
+  fontColor: 'black',
+  playerWidth: '20rem',
+  iconSize: '1rem',
   hideSeeking: false,
   scrollMarquee: false,
   scrollDifference: 0,
   scrollTime: 0,
   scrollStyle: {
-    marginLeft: "0"
+    marginLeft: '0'
   }
 }; //Icons
 
