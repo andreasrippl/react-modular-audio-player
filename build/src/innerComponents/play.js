@@ -26,6 +26,7 @@ const Play = (props) => {
         className="player-img"
         id="play-icon"
         style={{
+          cursor: pointer,
           height: iconSize
         }}
         src={renderPlayIcon()}/>
