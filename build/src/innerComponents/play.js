@@ -1,7 +1,7 @@
 import React from 'react';
 
 //prop types
-import {playPropTypes} from '../spec/propTypes'
+import { playPropTypes } from '../spec/propTypes';
 
 const Play = (props) => {
   let {
@@ -11,28 +11,29 @@ const Play = (props) => {
     handleHoverOver,
     handleHoverOut,
     iconSize,
-    renderPlayIcon
+    renderPlayIcon,
   } = props;
 
   return (
     <div
       id="play"
-      onClick={playing
-      ? handlePause
-      : handlePlay}
-      onMouseOver={e => handleHoverOver(e, 'play')}
-      onMouseLeave={e => handleHoverOut(e, 'play')}>
+      onLoad={handlePlay}
+      onClick={playing ? handlePause : handlePlay}
+      onMouseOver={(e) => handleHoverOver(e, 'play')}
+      onMouseLeave={(e) => handleHoverOut(e, 'play')}
+    >
       <img
         className="player-img"
         id="play-icon"
         style={{
-          cursor: "pointer",
-          height: iconSize
+          cursor: 'pointer',
+          height: iconSize,
         }}
-        src={renderPlayIcon()}/>
+        src={renderPlayIcon()}
+      />
     </div>
-  )
-}
+  );
+};
 
 Play.propTypes = playPropTypes;
 

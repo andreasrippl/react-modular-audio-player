@@ -1833,21 +1833,24 @@ var Play = function Play(props) {
     'div',
     {
       id: 'play',
+      onLoad: handlePlay,
       onClick: playing ? handlePause : handlePlay,
       onMouseOver: function onMouseOver(e) {
         return handleHoverOver(e, 'play');
       },
       onMouseLeave: function onMouseLeave(e) {
         return handleHoverOut(e, 'play');
-      } },
+      }
+    },
     _react2.default.createElement('img', {
       className: 'player-img',
       id: 'play-icon',
       style: {
-        cursor: "pointer",
+        cursor: 'pointer',
         height: iconSize
       },
-      src: renderPlayIcon() })
+      src: renderPlayIcon()
+    })
   );
 };
 
