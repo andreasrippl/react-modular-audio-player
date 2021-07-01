@@ -5,7 +5,7 @@ export default {
   currentTrackIdx : 0,
   seekerVal : "0",
   volume : "75",
-  playing : true,
+  playing : false,
   paused : false,
   muted : false,
   volumePreMute : "75",

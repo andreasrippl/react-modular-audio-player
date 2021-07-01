@@ -77,6 +77,7 @@ export class AudioPlayer extends Component {
 
   componentDidMount() {
     this.mountComponent();
+    this.handlePlay();
   }
 
   render() {
