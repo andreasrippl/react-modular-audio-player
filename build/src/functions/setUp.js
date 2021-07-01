@@ -22,22 +22,21 @@ export function mountComponent() {
     'fontColor',
     'sliderClass',
     'playerWidth',
-    'iconSize'
+    'iconSize',
   ]);
   this.setState(opts, () => {
-    if (!this.props.hideName) 
-      this.setScrollSize();
+    if (!this.props.hideName) this.setScrollSize();
     this.setPercentages();
   });
 }
 
 export function setOpts(settings) {
   let opts = {};
-  settings.forEach(setting => {
+  settings.forEach((setting) => {
     opts[setting] = this.props[setting]
       ? this.props[setting]
       : this.state[setting];
-  })
+  });
   return opts;
 }
 
@@ -50,15 +49,19 @@ export function setScrollSize() {
         if (marqueeWidth > nameDisplayWidth) {
           let scrollTime = Math.round((marqueeWidth / nameDisplayWidth) * 1.7);
           let difference = marqueeWidth - nameDisplayWidth;
-          this.setState({scrollMarquee: true, scrollDifference: difference, scrollTime});
+          this.setState({
+            scrollMarquee: true,
+            scrollDifference: difference,
+            scrollTime,
+          });
         }
       }
-    })
+    });
   }, 0);
 }
 
 export function setNameDisplayRef(el) {
-  this.nameDisplay = el
+  this.nameDisplay = el;
 }
 
 export function setStyle(tier) {
@@ -68,36 +71,43 @@ export function setStyle(tier) {
     color: this.state.fontColor,
     fontSize: this.state.fontSize,
     width: `${this.state.playerWidth}`,
-    height: this.state.playerHeight
-  }
+    height: this.state.playerHeight,
+  };
   if (tier) {
-    style.display = "flex";
-    style.flexDirection = "column";
+    style.display = 'flex';
+    style.flexDirection = 'column';
   }
   return style;
 }
 
 export function setAudio() {
-  return <audio
-    src={this.props.audioFiles[this.state.currentTrackIdx].src}
-    ref={(audioRef) => {
-    this.audioRef = audioRef;
-  }}
-    onLoadedMetadata={this.loadDuration}
-    // onSuspend={() => clearInterval(this.seekingInterval)}
-    onPlay={this.startPlay}
-    onEnded={this.endPlay}
+  return (
+    <audio
+      src={this.props.audioFiles[this.state.currentTrackIdx].src}
+      ref={(audioRef) => {
+        this.audioRef = audioRef;
+      }}
+      onLoadedMetadata={this.loadDuration}
+      // onSuspend={() => clearInterval(this.seekingInterval)}
+      onPlay={this.startPlay}
+      autoPlay
+      onEnded={this.endPlay}
     />
+  );
 }
 
 export function setPercentages() {
   if (this.props.rearrange) {
-    this.setState({volumeWidth: "100%", nameWidth: "100%", seekWidth: "100%"})
+    this.setState({
+      volumeWidth: '100%',
+      nameWidth: '100%',
+      seekWidth: '100%',
+    });
   } else if (this.props.hideSeeking && this.props.hideName) {
-    this.setState({volumeWidth: "100%"});
+    this.setState({ volumeWidth: '100%' });
   } else if (this.props.hideSeeking) {
-    this.setState({volumeWidth: "50%", nameWidth: "50%"})
+    this.setState({ volumeWidth: '50%', nameWidth: '50%' });
   } else if (this.props.hideName) {
-    this.setState({volumeWidth: "50%", seekWidth: "50%"})
+    this.setState({ volumeWidth: '50%', seekWidth: '50%' });
   }
 }

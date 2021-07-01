@@ -1146,7 +1146,11 @@ function setScrollSize() {
         if (marqueeWidth > nameDisplayWidth) {
           var scrollTime = Math.round(marqueeWidth / nameDisplayWidth * 1.7);
           var difference = marqueeWidth - nameDisplayWidth;
-          _this3.setState({ scrollMarquee: true, scrollDifference: difference, scrollTime: scrollTime });
+          _this3.setState({
+            scrollMarquee: true,
+            scrollDifference: difference,
+            scrollTime: scrollTime
+          });
         }
       }
     });
@@ -1167,8 +1171,8 @@ function setStyle(tier) {
     height: this.state.playerHeight
   };
   if (tier) {
-    style.display = "flex";
-    style.flexDirection = "column";
+    style.display = 'flex';
+    style.flexDirection = 'column';
   }
   return style;
 }
@@ -1184,19 +1188,24 @@ function setAudio() {
     onLoadedMetadata: this.loadDuration
     // onSuspend={() => clearInterval(this.seekingInterval)}
     , onPlay: this.startPlay,
+    autoPlay: true,
     onEnded: this.endPlay
   });
 }
 
 function setPercentages() {
   if (this.props.rearrange) {
-    this.setState({ volumeWidth: "100%", nameWidth: "100%", seekWidth: "100%" });
+    this.setState({
+      volumeWidth: '100%',
+      nameWidth: '100%',
+      seekWidth: '100%'
+    });
   } else if (this.props.hideSeeking && this.props.hideName) {
-    this.setState({ volumeWidth: "100%" });
+    this.setState({ volumeWidth: '100%' });
   } else if (this.props.hideSeeking) {
-    this.setState({ volumeWidth: "50%", nameWidth: "50%" });
+    this.setState({ volumeWidth: '50%', nameWidth: '50%' });
   } else if (this.props.hideName) {
-    this.setState({ volumeWidth: "50%", seekWidth: "50%" });
+    this.setState({ volumeWidth: '50%', seekWidth: '50%' });
   }
 }
 
